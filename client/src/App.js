@@ -11,17 +11,17 @@ import EditAuthor from "./components/EditAuthor";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Container>
-        <Navbar className='d-flex justify-content-center'>
+        <Navbar className="d-flex justify-content-center">
           <h1>Favorite authors</h1>
         </Navbar>
         <Row>
-          <Col className='d-flex justify-content-center'>
+          <Col className="d-flex justify-content-center">
             <Routes>
-              <Route path='/' element={<AuthorList />} />
-              <Route path='/new' element={<CreateAuthor />} />
-              <Route path='/edit/:id' element={<EditAuthor />} />
+              <Route path="/" element={<AuthorList />} />
+              <Route path="/new" element={<CreateAuthor />} />
+              <Route path="/edit/:id" element={<EditAuthor />} />
             </Routes>
           </Col>
         </Row>

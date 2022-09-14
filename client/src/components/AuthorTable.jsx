@@ -12,6 +12,15 @@ const AuthorTable = () => {
     axios
       .get("http://localhost:8000/api/authors")
       .then((res) => {
+        console.log(res.data);
+        let alphasort = res.data.sort((a, b) =>
+          a.author.toUpperCase() == b.author.toUpperCase()
+            ? 0
+            : a.author.toUpperCase() > b.author.toUpperCase()
+            ? 1
+            : -1
+        );
+        console.log(alphasort);
         setAuthors(res.data);
       })
       .catch((err) => console.log(err));
@@ -31,7 +40,7 @@ const AuthorTable = () => {
       </thead>
       <tbody>
         {authors ? (
-          authors.map((authorItem) => {
+          authors.sort().map((authorItem) => {
             return (
               <AuthorTableRows
                 filterRemove={filterRemove}
@@ -42,7 +51,7 @@ const AuthorTable = () => {
           })
         ) : (
           <tr>
-            <td colSpan='2'>Loading</td>
+            <td colSpan="2">Loading</td>
           </tr>
         )}
       </tbody>

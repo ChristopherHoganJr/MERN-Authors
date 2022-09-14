@@ -46,17 +46,28 @@ const EditAuthor = () => {
 
   return (
     <div className="text-center">
-      <Link to="/">Home</Link>
-      <p>Edit this author:</p>
+      <div className="mb-3">
+        <Link to="/">Home</Link>
+      </div>
+
       {author ? (
-        <form onSubmit={(e) => submitEditAuthor(e)}>
-          {errors.map((err, index) => (
-            <p key={index}>{err}</p>
-          ))}
-          <AuthorFormData setAuthor={setTestAuthor} Author={testAuthor} />
-        </form>
+        <>
+          <p>Edit this author:</p>
+          <form onSubmit={(e) => submitEditAuthor(e)}>
+            {errors.map((err, index) => (
+              <p key={index}>{err}</p>
+            ))}
+            <AuthorFormData setAuthor={setTestAuthor} Author={testAuthor} />
+          </form>
+        </>
       ) : (
-        <p>Loading...</p>
+        <>
+          <p>
+            We're sorry, but we could not find the author you are looking for.
+            Would you like to add this author to our database?"
+          </p>
+          <Link to="/new">Create an Author</Link>
+        </>
       )}
     </div>
   );
