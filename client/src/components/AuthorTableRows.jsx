@@ -1,15 +1,16 @@
 import React from "react";
 
 // components
-import AuthorTableButton from "./AuthorTableButton";
+import EditButton from "./EditButton";
+import DeleteButton from "./DeleteButton";
 
-const AuthorTableRows = ({ authorName }) => {
+const AuthorTableRows = ({ authorItem, filterRemove }) => {
   return (
     <tr>
-      <td>{authorName}</td>
+      <td>{authorItem.author}</td>
       <td>
-        <AuthorTableButton buttonType={"Edit"} />
-        <AuthorTableButton buttonType={"Delete"} />
+        <EditButton authorId={authorItem._id} />
+        <DeleteButton authorId={authorItem._id} filterRemove={filterRemove} />
       </td>
     </tr>
   );

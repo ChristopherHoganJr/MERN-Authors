@@ -5,7 +5,7 @@ const AuthorSchema = new mongoose.Schema(
   {
     author: {
       type: String,
-      required: [true, "must enter an author's name."],
+      required: [true, "must enter an author's {PATH}."],
       minlength: [3, "{PATH} must be at least 3 characters"],
     },
   },
