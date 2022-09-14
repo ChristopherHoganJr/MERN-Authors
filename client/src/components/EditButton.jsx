@@ -6,7 +6,11 @@ const EditButton = ({ authorId }) => {
   const editAuthor = (id) => {
     navigate("/edit/" + id);
   };
-  return <button onClick={() => editAuthor(authorId)}>EditButton</button>;
+  return (
+    <button onClick={() => editAuthor(authorId)} className="me-2">
+      EditButton
+    </button>
+  );
 };
 
 export default EditButton;
